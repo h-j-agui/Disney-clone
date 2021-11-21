@@ -1,22 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import db from "../firebase";
 
 function Detail() {
-  return (
+  const [movie, setMovie] = useState();
+  const { id } = useParams();
+  console.log("este es el id", id);
+
+  useEffect(() => {
+    db.collection("movies")
+      .doc(id)
+      .get()
+      .then((doc) => {
+        // console.log(doc.data());
+        if (doc.exists) {
+          setMovie(doc.data());
+        }
+        setTimeout(() => {
+          console.log(movie);
+        }, 2000);
+      });
+  }, []);
+
+  return movie ? (
     <Container>
       <Background>
-        <img src="#" alt="" />
+        <img src={movie.backgroundImg} alt="" />
       </Background>
       <ImageTitle>
-        <img src="#" alt="" />
+        <img src={movie.titleImg} alt={movie.title} />
       </ImageTitle>
       <Controls>
         <PlayButton>
-          <img src="/images/play-icon-black.png" />
+          <img src="/images/play-icon-black.png" alt="play button" />
           <spa>PLAY</spa>
         </PlayButton>
         <TrailerButton>
-          <img src="/images/play-icon-white.png" />
+          <img src="/images/play-icon-white.png" alt="trailer button" />
           <spa>Trailer</spa>
         </TrailerButton>
         <AddButton>
@@ -26,9 +47,11 @@ function Detail() {
           <img src="/images/group-icon.png" alt="" />
         </GroupWatchButton>
       </Controls>
-      <SubTitle>2018 7m Family, Fantisy, Kids, Animation</SubTitle>
-      <Description>information</Description>
+      <SubTitle>{movie.subTitle}</SubTitle>
+      <Description>{movie.description}</Description>
     </Container>
+  ) : (
+    <>Loading...</>
   );
 }
 
@@ -59,6 +82,7 @@ const ImageTitle = styled.div`
   min-height: 170px;
   width: 35vw;
   min-width: 200px;
+  margin-top: 60px;
 
   img {
     width: 100%;
@@ -120,6 +144,7 @@ min-height: 20px
 margin-top: 26px
 `;
 const Description = styled.div`
+  max-width: 760px;
   line-height: 1.4;
   font-size: 20px;
   margin-top: 16px;
