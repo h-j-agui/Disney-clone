@@ -1,0 +1,21 @@
+[debug] [2021-11-22T15:54:24.365Z] ----------------------------------------------------------------------
+[debug] [2021-11-22T15:54:24.367Z] Command:       /usr/local/bin/firebase /Users/hjoy/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase init
+[debug] [2021-11-22T15:54:24.368Z] CLI Version:   9.23.0
+[debug] [2021-11-22T15:54:24.368Z] Platform:      darwin
+[debug] [2021-11-22T15:54:24.368Z] Node Version:  v12.18.1
+[debug] [2021-11-22T15:54:24.369Z] Time:          Mon Nov 22 2021 10:54:24 GMT-0500 (Eastern Standard Time)
+[debug] [2021-11-22T15:54:24.369Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-22T15:54:24.375Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-22T15:54:24.375Z] > authorizing via signed-in user (hannah.agui@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/hjoy/Desktop/disney-clone/disney-clone
+
